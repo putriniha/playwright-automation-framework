@@ -2,6 +2,9 @@ import pytest
 from playwright.sync_api import sync_playwright
 from pages.login_page import LoginPage
 from pages.inventory_page import InventoryPage
+from pages.cart_page import CartPage
+from pages.checkout_page import CheckoutPage
+from pages.checkout_complete_page import CheckoutCompletePage
 from config.config import Config
 
 @pytest.fixture(scope="session")
@@ -31,3 +34,15 @@ def login_page(page):
 @pytest.fixture
 def inventory_page(page):
     return InventoryPage(page)
+
+@pytest.fixture
+def cart_page(page):
+    return CartPage(page)
+
+@pytest.fixture
+def checkout_page(page):    
+    return CheckoutPage(page)   
+
+@pytest.fixture
+def checkout_complete_page(page):
+    return CheckoutCompletePage(page)
