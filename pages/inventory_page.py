@@ -1,9 +1,11 @@
 class InventoryPage:
     def __init__(self, page):
         self.page = page
+        self.add_to_cart_button = "#add-to-cart-sauce-labs-backpack"
+        self.cart_icon = ".shopping_cart_link"
 
-        # locators
-        self.inventory_list = page.locator(".inventory_list")
-
-    def is_loaded(self):
-        return self.inventory_list.is_visible()
+    def add_item_to_cart(self):
+        self.page.click(self.add_to_cart_button)
+    
+    def go_to_cart(self):
+        self.page.click(self.cart_icon)
