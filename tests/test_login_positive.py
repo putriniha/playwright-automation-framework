@@ -8,5 +8,6 @@ def test_login_happy_path(page):
 
     login_page.open()
     login_page.login("standard_user", "secret_sauce")
-
+    
     assert inventory_page.is_loaded()
+    
