@@ -11,6 +11,10 @@ def test_user_can_checkout_successfully(
     inventory_page.add_item_to_cart()
     inventory_page.go_to_cart()
 
+    # cart_page.update_quantity("2")
+
+    assert cart_page.is_item_visible()
+    
     cart_page.proceed_to_checkout()
 
     checkout_page.fill_information("Putri", "QA", "12345")
