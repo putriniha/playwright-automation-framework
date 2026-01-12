@@ -1,5 +1,6 @@
 import pytest
 import os
+import allure
 from playwright.sync_api import sync_playwright
 from pages.login_page import LoginPage
 from pages.inventory_page import InventoryPage
@@ -62,4 +63,10 @@ def pytest_runtest_makereport(item, call):
         os.makedirs("screenshots", exist_ok=True)
         page.screenshot(path=screenshot_path)
         print(f"\nScreenshot saved to {screenshot_path}")
+        with open(screenshot_path, "rb") as image_file:
+            allure.attach(
+                image_file.read(),
+                name=screenshot_name,
+                attachment_type=allure.attachment_type.PNG
+            )
     
