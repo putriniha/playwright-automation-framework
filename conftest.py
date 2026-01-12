@@ -1,4 +1,5 @@
 import pytest
+import os
 from playwright.sync_api import sync_playwright
 from pages.login_page import LoginPage
 from pages.inventory_page import InventoryPage
@@ -6,6 +7,7 @@ from pages.cart_page import CartPage
 from pages.checkout_page import CheckoutPage
 from pages.checkout_complete_page import CheckoutCompletePage
 from config.config import Config
+from datetime import datetime
 
 @pytest.fixture(scope="session")
 def playwright_instance():
@@ -46,3 +48,18 @@ def checkout_page(page):
 @pytest.fixture
 def checkout_complete_page(page):
     return CheckoutCompletePage(page)
+
+@pytest.hookimpl(hookwrapper=True)
+def pytest_runtest_makereport(item, call):
+    outcome = yield
+    rep = outcome.get_result()
+    
+    if rep.when == "call" and rep.failed:
+        page = item.funcargs['page']
+        timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+        screenshot_name = f"screenshot_{item.name}_{timestamp}.png"
+        screenshot_path = os.path.join("screenshots", screenshot_name)
+        os.makedirs("screenshots", exist_ok=True)
+        page.screenshot(path=screenshot_path)
+        print(f"\nScreenshot saved to {screenshot_path}")
+    
