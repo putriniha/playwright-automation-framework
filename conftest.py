@@ -35,6 +35,10 @@ def login_page(page):
     return LoginPage(page)
 
 @pytest.fixture
+def config():
+    return Config
+
+@pytest.fixture
 def inventory_page(page):
     return InventoryPage(page)
 
@@ -69,4 +73,6 @@ def pytest_runtest_makereport(item, call):
                 name=screenshot_name,
                 attachment_type=allure.attachment_type.PNG
             )
+
+
     
