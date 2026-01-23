@@ -12,5 +12,8 @@ class InventoryPage:
         
     def go_to_cart(self):
         self.page.click(self.cart_icon)
+        
+    def get_confirmation_text(self):
+        return self.page.text_content(".complete-header")
     
     
