@@ -1,5 +1,7 @@
 import pytest 
 
+@pytest.mark.smoke
+@pytest.mark.regression
 def test_user_can_checkout_successfully(
     login_page,
     inventory_page,
