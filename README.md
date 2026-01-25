@@ -37,6 +37,7 @@ This project is intended for **learning purposes and portfolio demonstration** a
 - **Negative Tests** - Error handling & validation
 
 ## 📁 Project Structure
+```
 playwright-automation-framework/
 ├── pages/
 │   ├── __init__.py
@@ -60,7 +61,7 @@ playwright-automation-framework/
 ├── pytest.ini
 ├── requirements.txt
 └── README.md
-
+```
 
 ## ▶️ How to Run the Tests
 
