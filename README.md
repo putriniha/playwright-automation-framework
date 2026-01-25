@@ -1,40 +1,128 @@
 ## 📌 Overview
-This project is an end-to-end (E2E) test automation framework built using Playwright 
-to validate critical user flows of a web application.
+This repository contains an **end-to-end test automation framework** built using **Playwright with Python and Pytest**.  
+The framework is designed following **Page Object Model (POM)** principles to ensure **maintainability, readability, and scalability**.
 
-The framework focuses on:
-- Functional testing
-- Regression testing
-- Smoke testing
-- Negative scenarios
+It covers:
+- UI functional testing
+- Positive & Negative test scenarios
+- Smoke & Regression test suites
+- Parametrerized test execution
 
-It is designed with scalability, maintainability, and CI integration in mind.
+This project is intended for **learning purposes and portfolio demonstration** as a QA Automation Engineer.
 
-## 🛠 Tech Stack
-- **Playwright** – End-to-end test automation
-- **Page Object Model (POM)** – Test design pattern
-- **GitHub Actions** – CI/CD pipeline
-- **Playwright HTML Reporter** – Test reporting
+## 🧰 Tech Stack
+- **Language**: Python 3.11.7
+- **Automation Tool**: Playwright
+- **Test Framework**: Pytest 
+- **Design Pattern**: Page Object Model (POM)
+- **Reporting**: Pytest HTML
+- **Version Control**: Git & Github
 
 ## 🧪 Test Scenarios Covered
 
 ### 🔐 Authentication
 - Login with valid credentials
-- Login with invalid email
-- Login with incorrect password
+- Login with invalid credentials
+- Login with empty username/password
+- Error message validation
 
 ### 🛒 Checkout Flow
 - Add product to cart
-- Remove product from cart
-- Complete checkout process
-- Handle empty cart scenario - Still in Progress
+- Checkout flow
+- Order confirmation validation
 
-### 🚫 Negative Scenarios
-- Invalid input validation
-- Unauthorized access handling
-- Error message verification
+### 🏷️ Test Categorization
+- **Smoke Tests** - Critical functionality validation
+- **Regression Tests** - Full test coverage
+- **Negative Tests** - Error handling & validation
 
-### 🔓 Logout - on progress to add
-- Logout from authenticated session
-- Redirect user to login page
-- Prevent access to protected routes after logout
+## 📁 Project Structure
+playwright-automation-framework/
+│
+├── pages/                  # Page Object classes
+│   ├── __init__.py
+|   ├── cart_page.py
+|   ├── checkout_completed_page.py
+|   ├── checkout_page.py
+│   ├── inventory_page.py
+│   └── login_page.py
+|
+├── screenshots/ 
+|
+├── tests/                  # Test cases
+│   ├── __init__.py
+│   ├── test_checkout_flow.py
+│   ├── test_login_multiple_users.py
+│   ├── test_login_negative.py
+│   └── test_login_positive.py
+│
+├── conftest.py             # Pytest fixtures
+├── pytest.ini              # Pytest configuration & markers
+├── requirements.txt        # Project dependencies
+└── README.md               # Project documentation
+
+
+
+## ▶️ How to Run the Tests
+
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/putriniha/playwright-automation-framework.git
+cd playwright-automation-framework 
+```
+
+### 2️⃣ Create & Activate Virtual Environment
+```bash
+python -m venv venv
+```
+#### Windows
+```bash
+venv\Scripts\activate
+```
+### Mac / Linux
+```bash
+source venv/bin/activate
+```
+
+### 3️⃣ Install Dependencies
+```bash
+pip install -r requirements.txt
+playwright install
+```
+
+### 4️⃣ Run All Tests
+```bash
+pytest
+```
+
+### 5️⃣ Run Specific Test Suites
+#### Smoke Tests
+```bash
+pytest -m smoke
+```
+#### Regression Tests
+```bash
+pytest -m regression
+```
+### Negatice Tests
+```bash
+pytest -m negative
+```
+
+## 🧠 Key Automation Practices Used
+- Page Object Model (POM)
+- Parametrized test cases
+- Test tagging (smoke, regression, negative)
+- Assertion best practices
+- Reusable fixtures
+
+## 🚀 Future Improvements
+- CI/CD integration (GitHub Actions)
+- Parallel execution
+- Allure reporting
+- Environment configuration support
+
+## 👩‍💻 Author
+Putri Nihayatul Husna
+QA Engineer | Manual & Automation
+GitHub: https://github.com/putriniha
