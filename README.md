@@ -38,29 +38,28 @@ This project is intended for **learning purposes and portfolio demonstration** a
 
 ## 📁 Project Structure
 playwright-automation-framework/
-│
-├── pages/                  # Page Object classes
+├── pages/
 │   ├── __init__.py
-|   ├── cart_page.py
-|   ├── checkout_completed_page.py
-|   ├── checkout_page.py
+│   ├── cart_page.py
+│   ├── checkout_complete_page.py
+│   ├── checkout_page.py
 │   ├── inventory_page.py
 │   └── login_page.py
-|
-├── screenshots/ 
-|
-├── tests/                  # Test cases
+│
+├── screenshots/
+│
+├── tests/
 │   ├── __init__.py
 │   ├── test_checkout_flow.py
 │   ├── test_login_multiple_users.py
 │   ├── test_login_negative.py
 │   └── test_login_positive.py
 │
-├── conftest.py             # Pytest fixtures
-├── pytest.ini              # Pytest configuration & markers
-├── requirements.txt        # Project dependencies
-└── README.md               # Project documentation
-
+├── .gitignore
+├── conftest.py
+├── pytest.ini
+├── requirements.txt
+└── README.md
 
 
 ## ▶️ How to Run the Tests
