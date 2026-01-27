@@ -62,11 +62,17 @@ playwright-automation-framework/
 ├── screenshots/
 │
 ├── tests/
-│   ├── __init__.py
-│   ├── test_checkout_flow.py
-│   ├── test_login_multiple_users.py
-│   ├── test_login_negative.py
-│   └── test_login_positive.py
+│   ├── api/
+│   │   ├── __init__.py
+│   │   ├── test_create_users.py
+│   │   └── test_get_users.py
+│   │
+│   └── ui/
+│       ├── __init__.py
+│       ├── test_checkout_flow.py
+│       ├── test_login_multiple_users.py
+│       ├── test_login_negative.py
+│       └── test_login_positive.py
 │
 ├── .gitignore
 ├── conftest.py
