@@ -54,25 +54,33 @@ def checkout_page(page):
 def checkout_complete_page(page):
     return CheckoutCompletePage(page)
 
+@pytest.fixture
+def api_headers():
+    return{
+        "Authorization": f"Bearer {os.getenv('API_TOKEN')}",
+        "Content-Type": "application/json"
+    }
+
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_makereport(item, call):
     outcome = yield
     rep = outcome.get_result()
     
     if rep.when == "call" and rep.failed:
-        page = item.funcargs['page']
-        timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        screenshot_name = f"screenshot_{item.name}_{timestamp}.png"
-        screenshot_path = os.path.join("screenshots", screenshot_name)
-        os.makedirs("screenshots", exist_ok=True)
-        page.screenshot(path=screenshot_path)
-        print(f"\nScreenshot saved to {screenshot_path}")
-        with open(screenshot_path, "rb") as image_file:
-            allure.attach(
-                image_file.read(),
-                name=screenshot_name,
-                attachment_type=allure.attachment_type.PNG
-            )
+        if "page" in item.funcargs:
+            page = item.funcargs['page']
+            timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+            screenshot_name = f"screenshot_{item.name}_{timestamp}.png"
+            screenshot_path = os.path.join("screenshots", screenshot_name)
+            os.makedirs("screenshots", exist_ok=True)
+            page.screenshot(path=screenshot_path)
+            print(f"\nScreenshot saved to {screenshot_path}")
+            with open(screenshot_path, "rb") as image_file:
+                allure.attach(
+                    image_file.read(),
+                    name=screenshot_name,
+                    attachment_type=allure.attachment_type.PNG
+                )
 
 
     
