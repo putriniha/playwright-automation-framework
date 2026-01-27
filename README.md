@@ -36,6 +36,18 @@ This project is intended for **learning purposes and portfolio demonstration** a
 - **Regression Tests** - Full test coverage
 - **Negative Tests** - Error handling & validation
 
+### 🧪 API Testing Note
+
+Initial API tests were implemented using ReqRes.  
+Due to regional network restrictions causing consistent HTTP 403 responses,  
+the API test suite was migrated to JSONPlaceholder, a stable public API  
+commonly used for automated testing demonstrations.
+
+This ensures:
+- Reliable execution
+- Clear validation of API test logic
+- Network-independent results
+
 ## 📁 Project Structure
 ```
 playwright-automation-framework/
