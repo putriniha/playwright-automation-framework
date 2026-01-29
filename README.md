@@ -36,17 +36,18 @@ This project is intended for **learning purposes and portfolio demonstration** a
 - **Regression Tests** - Full test coverage
 - **Negative Tests** - Error handling & validation
 
-### 🧪 API Testing Note
+### 🧪 API Testing
 
-Initial API tests were implemented using ReqRes.  
-Due to regional network restrictions causing consistent HTTP 403 responses,  
-the API test suite was migrated to JSONPlaceholder, a stable public API  
-commonly used for automated testing demonstrations.
+API testing is performed using two approaches:
 
-This ensures:
-- Reliable execution
-- Clear validation of API test logic
-- Network-independent results
+- **Postman**
+  - Manual and exploratory API testing
+  - Validates request/response, status codes, and edge cases
+  - Collection included in `/postman` folder
+
+- **Pytest + Requests**
+  - Automated API regression tests
+  - Covers GET and POST scenarios with assertions
 
 ## 📁 Project Structure
 ```
@@ -58,6 +59,9 @@ playwright-automation-framework/
 │   ├── checkout_page.py
 │   ├── inventory_page.py
 │   └── login_page.py
+│
+├── postman/
+│   └── api_tests.postman_collection.json
 │
 ├── screenshots/
 │
