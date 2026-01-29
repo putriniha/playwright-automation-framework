@@ -57,7 +57,6 @@ def checkout_complete_page(page):
 @pytest.fixture
 def api_headers():
     return{
-        "Authorization": f"Bearer {os.getenv('API_TOKEN')}",
         "Content-Type": "application/json"
     }
 
