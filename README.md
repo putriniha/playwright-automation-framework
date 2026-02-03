@@ -68,8 +68,11 @@ playwright-automation-framework/
 ├── tests/
 │   ├── api/
 │   │   ├── __init__.py
-│   │   ├── test_create_users.py
-│   │   └── test_get_users.py
+│   │   ├── test_create_user.py
+│   │   ├── test_delete_user.py
+│   │   ├── test_get_users.py
+│   │   ├── test_negative_cases.py
+│   │   └── test_update_user.py
 │   │
 │   └── ui/
 │       ├── __init__.py
