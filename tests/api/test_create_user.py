@@ -1,10 +1,11 @@
 import requests
 import pytest
 
+url = "https://jsonplaceholder.typicode.com"
+
 @pytest.mark.api
 def test_create_user():
-    url = "https://jsonplaceholder.typicode.com"
-
+    
     payload = {
         "name": "Putri",
         "username": "putri123",
